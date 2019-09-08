@@ -1,0 +1,55 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+
+#Karl Pearson's Coeffecient of Correlation
+
+kp_coef <- function(a, b){
+  a <- as.numeric(a)
+  b <- as.numeric(b)
+  mean_a <- mean(a)
+  mean_b <- mean(b)
+  dev_a <- sd(a)*(length(a)^0.5)
+  dev_b <- sd(b)*(length(b)^0.5)
+  
+  sd_a <- sd(a)
+  sd_b <- sd(b)
+  
+  n <- sum(length(a), length(b))
+  
+  
+  r = round((dev_a * dev_b)/(sd_a*sd_b*n), 3)
+  r
+}
+
+
+Physics_Scores  <- c(15, 12,  8,  8,   7,   7,   7,   6,   5,   3)
+
+History_Scores  <- c(10,  25,  17,  11,  13, 17,  20,  13,  9,   15)
+
+
+kp_coef(Physics_Scores, History_Scores)
+
+
+```
+
+```{r}
+a <- c(1,2,3)
+b <- c(4,59,6)
+sd(b)*length(b)
+
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
