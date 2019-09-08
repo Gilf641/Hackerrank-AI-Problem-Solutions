@@ -7,25 +7,36 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
-```{r}
+```{r KP}
+
+#--------------------------HACKERRANK CHALLENGE 1
 
 #Karl Pearson's Coeffecient of Correlation
 
+
+#Introduction: It is mathematical method where a numerical expression is used to estimate/calculate degree and direction of the relationship b/w linear related variables.
+
+#Assumptions:
+#1. Data is normally distributed.
+#2. Variables are independent of each other   
+#3. Relationship b/w variables is LINEAR
+
+
 kp_coef <- function(a, b){
-  a <- as.numeric(a)
+  a <- as.numeric(a) # conv both a and b to numeric datatype
   b <- as.numeric(b)
   mean_a <- mean(a)
   mean_b <- mean(b)
-  dev_a <- sd(a)*(length(a)^0.5)
+  dev_a <- sd(a)*(length(a)^0.5) # calculated deviation from Std deviation formula
   dev_b <- sd(b)*(length(b)^0.5)
   
   sd_a <- sd(a)
   sd_b <- sd(b)
   
-  n <- sum(length(a), length(b))
+  n <- sum(length(a), length(b)) # Total Num of observations
   
   
-  r = round((dev_a * dev_b)/(sd_a*sd_b*n), 3)
+  r = round((dev_a * dev_b)/(sd_a*sd_b*n), 3) # Karl Pearson's Coeffecient of Correlation Formula
   r
 }
 
@@ -41,10 +52,6 @@ kp_coef(Physics_Scores, History_Scores)
 ```
 
 ```{r}
-a <- c(1,2,3)
-b <- c(4,59,6)
-sd(b)*length(b)
-
 
 ```
 
